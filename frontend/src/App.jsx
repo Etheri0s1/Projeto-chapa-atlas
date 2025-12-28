@@ -25,7 +25,6 @@ function App() {
     })
     .catch(err => {
       console.log("Erro:", err);
-      // Se der erro, você pode escolher deixar o Atlas lá ou mostrar um erro
     });
 }, []);
 
@@ -55,7 +54,7 @@ function App() {
         <h2 className="section-title">PRÓXIMOS EVENTOS</h2>
         
         {carregando ? (
-          /* IDEIA 1: ANIMAÇÃO DO ATLAS */
+          /* ANIMAÇÃO DE ESPERA */
           <div className="atlas-loading-screen">
             <div className="atlas-world-container">
               <div className="atlas-globe"></div>
@@ -67,7 +66,7 @@ function App() {
             </div>
           </div>
         ) : (
-          /* GRID DE EVENTOS REAIS */
+          /* GRID DE EVENTOS  */
           <div className="eventos-grid">
             {eventos.map(evento => (
               <div key={evento.id} className="evento-card">

@@ -34,5 +34,41 @@
   "hora_fim":"16:00:00",
   "fuso_horario":"America/Sao_Paulo",
   "codigo_acesso":"FORUM20"
+},
+{
+  "id":"4",
+  "titulo":"Congresso de Saúde Pública",
+  "descricao":"Abordagens inovadoras para desafios globais de saúde.",
+  "local":"Hotel Saúde & Bem-Estar",
+  "data_inicio":"2026-02-05",
+  "hora_inicio":"08:30:00",
+  "data_fim":"2026-02-05",
+  "hora_fim":"15:30:00",
+  "fuso_horario":"America/Sao_Paulo",
+  "codigo_acesso":"SAUDE05"
+},
+{
+  "id":"5",
+  "titulo":"Simpósio de Energias Renováveis",
+  "descricao":"Exploração de fontes de energia limpa e sustentável.",
+  "local":"Centro de Pesquisa Energética",
+  "data_inicio":"2026-03-12",
+  "hora_inicio":"13:00:00",
+  "data_fim":"2026-03-12",
+  "hora_fim":"18:00:00",
+  "fuso_horario":"America/Sao_Paulo",
+  "codigo_acesso":"ENERGIA12"
+},
+{
+  "id":"6",
+  "titulo":"Conferência de Educação Digital",
+  "descricao":"Inovações e desafios na educação do século XXI.",
+  "local":"Universidade Digital",
+  "data_inicio":"2026-04-22",
+  "hora_inicio":"09:30:00",
+  "data_fim":"2026-04-22",
+  "hora_fim":"12:30:00",
+  "fuso_horario":"America/Sao_Paulo",
+  "codigo_acesso":"EDUCA22"
 }
 ]
