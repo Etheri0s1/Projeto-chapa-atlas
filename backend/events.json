@@ -1,0 +1,38 @@
+[
+  {
+    "id": "1",
+    "titulo": "Workshop Inovação",
+    "descricao": "Explore novas tendências e tecnologias essenciais para o futuro sustentável.",
+    "local": "Auditório Central, Bloco A",
+    "data_inicio": "2025-12-10",
+    "hora_inicio": "14:00:00",
+    "data_fim": "2025-12-10",
+    "hora_fim": "17:00:00",
+    "fuso_horario": "America/Sao_Paulo",
+    "codigo_acesso": "INOVA25"
+  },
+  {
+    "id": "2",
+    "titulo": "Seminário Sustentabilidade",
+    "descricao": "Debate sobre práticas de ESG e impacto ambiental na indústria.",
+    "local": "Sala de Conferências 3B",
+    "data_inicio": "2025-12-15",
+    "hora_inicio": "09:00:00",
+    "data_fim": "2025-12-15",
+    "hora_fim": "14:00:00",
+    "fuso_horario": "America/Sao_Paulo",
+    "codigo_acesso": "SEMINAR15"
+  },
+  {
+  "id":"3",
+  "titulo":"Fórum de Tecnologia",
+  "descricao":"Discussão sobre avanços tecnológicos e inovação digital.",
+  "local":"Centro de Convenções TechPark",
+  "data_inicio":"2026-01-20",
+  "hora_inicio":"10:00:00",
+  "data_fim":"2026-01-20",
+  "hora_fim":"16:00:00",
+  "fuso_horario":"America/Sao_Paulo",
+  "codigo_acesso":"FORUM20"
+}
+]
