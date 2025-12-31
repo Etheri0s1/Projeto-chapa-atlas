@@ -5,17 +5,17 @@ const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
   const [eventos, setEventos] = useState([]);
-  const [carregando, setCarregando] = useState(true); // Estado para a animação
+  const [carregando, setCarregando] = useState(true);
+  const [mostraLinks, setMostraLinks] = useState(false);
 
   useEffect(() => {
-  setCarregando(true);
-  // Usamos a variável API_URL aqui
-  fetch(`${API_URL}/api/events`, {
-    headers: {
-      'ngrok-skip-browser-warning': 'true'
-    }
-  })
-  .then(res => res.json())
+    setCarregando(true);
+    fetch(`${API_URL}/api/events`, {
+      headers: {
+        'ngrok-skip-browser-warning': 'true'
+      }
+    })
+    .then(res => res.json())
     .then(data => {
       // Adiciona um atraso artificial de 3 segundos para testar o visual
       setTimeout(() => {
@@ -26,7 +26,19 @@ function App() {
     .catch(err => {
       console.log("Erro:", err);
     });
-}, []);
+  }, []);
+
+  // Função para rolar a seção de contato
+  const irParaContato = (e) => {
+    e.preventDefault();
+    setMostraLinks(true); 
+    setTimeout(() => {
+        const section = document.getElementById('contato');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, 100);
+  };
 
   return (
     <>
@@ -38,14 +50,17 @@ function App() {
           <ul>
             <li><a href="#home">HOME</a></li>
             <li><a href="#eventos">EVENTOS</a></li>
-            <li><a href="#contato">CONTATO</a></li>
+            <li><a href="#contato" onClick={irParaContato}>CONTATO</a></li>
           </ul>
         </nav>
       </header>
 
       <section className="hero" id="home">
         <div className="hero-image">
-            [imagem do instituto]
+          <img 
+            src="/imagens/teste.png" 
+            alt="Foto do Instituto ou Banner Principal" 
+          />
         </div>
         <h1>CONECTANDO IDEIAS,<br/>CULTIVANDO O FUTURO</h1>
       </section>
@@ -70,20 +85,44 @@ function App() {
           <div className="eventos-grid">
             {eventos.map(evento => (
               <div key={evento.id} className="evento-card">
-                <div className="card-image">[local ou banner do evento]</div>
+                <img src={evento.imagem} alt={evento.titulo} className="event-image" />       
                 <h3>{evento.titulo}</h3>
                 <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
                 <p className="evento-description">{evento.descricao}</p>
                 <a 
                   href={`${API_URL}/api/events/ics/${evento.id}`} 
                   className="btn-saiba-mais"
-                  >
+                >
                   SALVAR NO CALENDÁRIO
                 </a>
               </div>
             ))}
           </div>
         )}
+      </section>
+
+      <section id="contato" className="contato-section">
+        <h2 className="section-title">FALE CONOSCO</h2>
+        <div style={{ textAlign: 'center', padding: '2rem' }}>
+            <p>Entre em contato para dúvidas</p>
+            
+            {mostraLinks ? (
+                <div className="links-contato" style={{ marginTop: '20px' }}>
+                    <p>
+                      📧 <strong>Whatsapp: </strong> 
+                      <a href="https://chat.whatsapp.com/C4ImgaXWzcf5FfU32zc48U" target="_blank" rel="noopener noreferrer">
+                        Entrar no Grupo
+                      </a>
+                    </p>
+                    <p>
+                      📸 <strong>Instagram: </strong> 
+                      <a href="https://www.instagram.com/cageomiltonsantos" target="_blank" rel="noopener noreferrer">
+                        @cageomiltonsantos
+                      </a>
+                    </p>
+                </div>
+            ) : null}
+        </div>
       </section>
     </>
   );
