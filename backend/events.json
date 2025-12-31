@@ -2,25 +2,23 @@
   {
     "id": "1",
     "titulo": "Workshop Inovação",
+    "imagem": "/imagens/teste.png",
     "descricao": "Explore novas tendências e tecnologias essenciais para o futuro sustentável.",
     "local": "Auditório Central, Bloco A",
     "data_inicio": "2025-12-10",
     "hora_inicio": "14:00:00",
     "data_fim": "2025-12-10",
-    "hora_fim": "17:00:00",
-    "fuso_horario": "America/Sao_Paulo",
-    "codigo_acesso": "INOVA25"
+    "hora_fim": "17:00:00"
   },
   {
     "id": "2",
     "titulo": "Palestra sobre Sustentabilidade",
+    "imagem": "/imagens/teste.png",
     "descricao": "Junte-se a nós para uma discussão inspiradora sobre práticas sustentáveis no ambiente corporativo.",
     "local": "Sala de Conferências, Bloco B",
     "data_inicio": "2025-12-15",
     "hora_inicio": "10:00:00",
     "data_fim": "2025-12-15",
-    "hora_fim": "12:00:00",
-    "fuso_horario": "America/Sao_Paulo",
-    "codigo_acesso": "SUSTAIN25"
+    "hora_fim": "12:00:00"
   }
 ]

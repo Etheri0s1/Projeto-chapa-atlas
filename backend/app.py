@@ -7,7 +7,7 @@ import io
 import os
 
 app = Flask(__name__)
-# Configuração de CORS para permitir que o Netlify acesse o Render
+# Configuração para permitir que o Netlify acesse o Render
 CORS(app, resources={r"/api/*": {"origins": "*", "allow_headers": ["ngrok-skip-browser-warning"]}})
 
 # Função melhorada para carregar os eventos sem dar erro 500
@@ -26,7 +26,7 @@ def carregar_eventos():
 def get_events():
     return jsonify(carregar_eventos())
 
-@app.route('/api/event/ics/<id>')
+@app.route('/api/events/ics/<id>')
 def download_ics(id):
     eventos = carregar_eventos()
     ev_data = next((e for e in eventos if e['id'] == id), None)
@@ -43,12 +43,13 @@ def download_ics(id):
     event.add('description', ev_data['descricao'])
     event.add('location', ev_data['local'])
     
-    data_evento = datetime.strptime(ev_data['data_inicio'], '%Y-%m-%d')
-    event.add('dtstart', data_evento)
-    event.add('dtend', data_evento) 
-    
+    inicio_str = f"{ev_data['data_inicio']} {ev_data['hora_inicio']}"
+    dt_inicio = datetime.strptime(inicio_str, '%Y-%m-%d %H:%M:%S')
+    fim_str = f"{ev_data['data_fim']} {ev_data['hora_fim']}"
+    dt_fim = datetime.strptime(fim_str, '%Y-%m-%d %H:%M:%S')
+    event.add('dtstart', dt_inicio)
+    event.add('dtend', dt_fim) 
     cal.add_component(event)
-
     output = io.BytesIO()
     output.write(cal.to_ical())
     output.seek(0)
@@ -59,7 +60,3 @@ def download_ics(id):
         as_attachment=True,
         download_name=f"{ev_data['titulo']}.ics"
     )
-
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host='0.0.0.0', port=port)
