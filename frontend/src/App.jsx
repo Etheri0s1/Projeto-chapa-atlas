@@ -9,6 +9,21 @@ function App() {
   const [carregando, setCarregando] = useState(true);
   const [menuAberto, setMenuAberto] = useState(false);
 
+  //controlar qual cartão está virado
+  const [cardAtivo, setCardAtivo] = useState(null);
+
+  const equipe = [
+    { id: 1, nome: "Hênia Silva", cargo: "Presidente", foto: "/imagens/Henila.jpeg" },
+    { id: 2, nome: "Mariana Flores", cargo: "Vice-Presidente", foto: "/imagens/Mariana.jpeg" },
+    { id: 3, nome: "Ygor Neiva", cargo: "Secretário Geral", foto: "/imagens/Ygor.jpeg" },
+    { id: 4, nome: "Victor Cruz", cargo: "Comunicação e Eventos", foto: "/imagens/Victor.jpeg" },
+    { id: 5, nome: "Vicente Ferreira", cargo: "Finanças e Planejamento", foto: "/imagens/Vicente.jpeg" },
+    { id: 6, nome: "Aline Nascimento", cargo: "Combate as Opressões", foto: "/imagens/Aline.jpeg" },
+    { id: 7, nome: "Ualas Nascimento", cargo: "Esporte e Cultura", foto: "/imagens/Ualas.jpeg" },
+    { id: 8, nome: "Atanael Fagundes", cargo: "Assistência Estudantil", foto: "/imagens/Atanael.jpeg" },
+    { id: 9, nome: "Joandson Alves", cargo: "Políticas Públicas", foto: "/imagens/Joandson.jpeg" },
+  ];
+
   useEffect(() => {
     setCarregando(true);
     fetch(`${API_URL}/api/events`, { headers: { 'ngrok-skip-browser-warning': 'true' } })
@@ -22,6 +37,15 @@ function App() {
   const toggleMenuContato = (e) => {
     e.preventDefault();
     setMenuAberto(!menuAberto);
+  };
+
+  // Função para virar o cartão ao clicar
+  const virarCartao = (id) => {
+    if (cardAtivo === id) {
+        setCardAtivo(null); 
+    } else {
+        setCardAtivo(id);
+    }
   };
 
   return (
@@ -67,11 +91,41 @@ function App() {
         </nav>
       </header>
 
-      <section className="hero" id="home">
-         <div className="hero-image">
-           <img src="/imagens/teste.png" alt="Foto do Instituto" />
-         </div>
-         <h1>CONECTANDO IDEIAS,<br/>CULTIVANDO O FUTURO</h1>
+      <section className="hero-equipe" id="quem-somos">
+        <div className="hero-text-container">
+            <h1>CONECTANDO IDEIAS,<br/>CULTIVANDO O FUTURO</h1>
+            <p className="hero-subtitle">Toque nos membros para conhecer a gestão 2026</p>
+        </div>
+
+        <div className="equipe-grid-hero">
+          {equipe.map(membro => (
+            <div 
+                key={membro.id} 
+                className={`flip-card ${cardAtivo === membro.id ? 'flipped' : ''}`} 
+                onClick={() => virarCartao(membro.id)}
+            >
+              <div className="flip-card-inner">
+
+                {/* FRENTE */}
+                <div className="flip-card-front">
+                   <img 
+                      src={membro.foto} 
+                      alt={membro.nome} 
+                      onError={(e) => e.target.src='https://via.placeholder.com/150/CCCCCC/808080?text=?'} 
+                   />
+                </div>
+
+                {/* VERSO */}
+                <div className="flip-card-back">
+                   <h3>{membro.cargo}</h3>
+                   <div className="separador"></div>
+                   <p className="nome-back">{membro.nome}</p>
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       <section className="eventos-section" id="eventos">
