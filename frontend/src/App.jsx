@@ -372,7 +372,9 @@ const propostas = [
 
        <div className="evento-conteudo">
            <h3>{evento.titulo}</h3>
-           <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
+           <p className="evento-info">
+  {evento.data_inicio.split('T')[0].split('-').reverse().join('/')} • {evento.local}
+</p>
            <p className="evento-description">{evento.descricao}</p>
            
            <div className="eventos-botoes">
