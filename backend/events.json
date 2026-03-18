@@ -2,10 +2,14 @@
   {
     "id": "1",
     "titulo": "I Oficina de Boxe na UNEB",
-    "data_inicio": "31 de Março (Manhã e Tarde)",
-    "imagem": "/imagens/oficina-boxe.jpg",
-    "descricao": "Aprenda técnicas, desenvolva disciplina e fortaleça corpo e mente com o instrutor Ualas Nascimento. Porque mais que luta, é sobre cuidado, prevenção e autoconfiança.",
+    "data_inicio": "2026-03-31",
+    "hora_inicio": "08:30:00",
+    "data_fim": "2026-03-31",
+    "hora_fim": "16:30:00",
+    "descricao": "Turnos da Oficina: Manhã (08:30 às 11:00) e Tarde (14:30 às 16:30).Aprenda técnicas, desenvolva disciplina e fortaleça corpo e mente com o instrutor Ualas Nascimento. Porque mais que luta, é sobre cuidado, prevenção e autoconfiança.",
     "local": "UNEB Campus V",
-    "link_inscricao": "https://docs.google.com/forms/d/e/1FAIpQLSdh_-UL47gak1-MX8SUsHVCFGGBa1RgUYRULcJWY5s5hm_Tzg/viewform"
+    "imagem": "/imagens/oficina-boxe.jpg",
+    "link_inscricao": "https://docs.google.com/forms/...",
+    "link_post": "https://www.instagram.com/p/DWB6iuRCX6L/"
   }
 ]
