@@ -357,24 +357,25 @@ const propostas = [
           </div>
         ) : (
             <div className="eventos-grid">
-  {eventos.map(evento => (
-     <div key={evento.id} className="evento-card">
-       <img src={evento.imagem} alt={evento.titulo} className="event-image" />
-       <h3>{evento.titulo}</h3>
-       <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
-       <p className="evento-description">{evento.descricao}</p>
+              {eventos.map(evento => (
+                <div key={evento.id} className="evento-card">
+                  <img src={evento.imagem} alt={evento.titulo} className="event-image" />
+                  <h3>{evento.titulo}</h3>
+                  <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
+                  <p className="evento-description">{evento.descricao}</p>
 
        {/* SE EXISTIR LINK DE INSCRIÇÃO, BOTÃO VAI PRO FORMS */}
-       {evento.link_inscricao ? (
-         <a href={evento.link_inscricao} target="_blank" rel="noopener noreferrer" className="btn-saiba-mais btn-inscricao">
-           GARANTIR MINHA VAGA
-         </a>
-       ) : (
-       /* SE NÃO, CONTINUA O CALENDÁRIO NORMALMENTE */
-         <a href={`${API_URL}/api/events/ics/${evento.id}`} className="btn-saiba-mais">
-           SALVAR NO CALENDÁRIO
-         </a>
-       )}
+       <div className="eventos-botoes">
+           {evento.link_inscricao && (
+             <a href={evento.link_inscricao} target="_blank" rel="noopener noreferrer" className="btn-saiba-mais btn-inscricao">
+               GARANTIR MINHA VAGA
+             </a>
+           )}
+           
+           <a href={`${API_URL}/api/events/ics/${evento.id}`} className="btn-saiba-mais">
+             SALVAR NO CALENDÁRIO
+           </a>
+       </div>
 
      </div>
   ))}
