@@ -1,24 +1,11 @@
 [
   {
     "id": "1",
-    "titulo": "Eventos de testes",
-    "imagem": "/imagens/teste.png",
-    "descricao": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "local": "Auditório Central, Bloco A",
-    "data_inicio": "2025-12-10",
-    "hora_inicio": "14:00:00",
-    "data_fim": "2025-12-10",
-    "hora_fim": "17:00:00"
-  },
-  {
-    "id": "2",
-    "titulo": "Eventos de testes",
-    "imagem": "/imagens/teste.png",
-    "descricao": "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    "local": "Sala de Conferências, Bloco B",
-    "data_inicio": "2026-12-15",
-    "hora_inicio": "10:00:00",
-    "data_fim": "2026-12-15",
-    "hora_fim": "12:00:00"
+    "titulo": "I Oficina de Boxe na UNEB",
+    "data_inicio": "31 de Março (Manhã e Tarde)",
+    "imagem": "/imagens/oficina-boxe.jpg",
+    "descricao": "Aprenda técnicas, desenvolva disciplina e fortaleça corpo e mente com o instrutor Ualas Nascimento. Porque mais que luta, é sobre cuidado, prevenção e autoconfiança.",
+    "local": "UNEB Campus V",
+    "link_inscricao": "https://docs.google.com/forms/d/e/1FAIpQLSdh_-UL47gak1-MX8SUsHVCFGGBa1RgUYRULcJWY5s5hm_Tzg/viewform"
   }
 ]

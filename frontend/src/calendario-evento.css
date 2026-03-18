@@ -608,6 +608,19 @@ nav a {
     text-align: center;
     font-weight: 500;
 }
+ 
+.btn-inscricao {
+    background-color: transparent;
+    color: #1aa25e;
+    border: 2px solid #1aa25e;
+    font-weight: bold;
+}
+
+.btn-inscricao:hover {
+    background-color: #1aa25e; 
+    color: white;
+    transform: scale(1.02);
+}
 
 /* --- MENU (CONTATO) --- */
 .contato-container-nav {
