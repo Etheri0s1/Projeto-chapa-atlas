@@ -357,24 +357,34 @@ const propostas = [
           </div>
         ) : (
             <div className="eventos-grid">
-              {eventos.map(evento => (
-                <div key={evento.id} className="evento-card">
-                  <img src={evento.imagem} alt={evento.titulo} className="event-image" />
-                  <h3>{evento.titulo}</h3>
-                  <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
-                  <p className="evento-description">{evento.descricao}</p>
+  {eventos.map(evento => (
+     <div key={evento.id} className="evento-card">
+       <a 
+         href={evento.link_post || "#"} 
+         target={evento.link_post ? "_blank" : "_self"}
+         rel="noopener noreferrer" 
+         className="evento-imagem-container"
+       >
+         <img src={evento.imagem} alt={evento.titulo} className="event-image" />
+         
+         {evento.link_post && <div className="selo-instagram">Ver no Instagram</div>}
+       </a>
 
-       {/* SE EXISTIR LINK DE INSCRIÇÃO, BOTÃO VAI PRO FORMS */}
-       <div className="eventos-botoes">
-           {evento.link_inscricao && (
-             <a href={evento.link_inscricao} target="_blank" rel="noopener noreferrer" className="btn-saiba-mais btn-inscricao">
-               GARANTIR MINHA VAGA
-             </a>
-           )}
+       <div className="evento-conteudo">
+           <h3>{evento.titulo}</h3>
+           <p className="evento-info">{evento.data_inicio} • {evento.local}</p>
+           <p className="evento-description">{evento.descricao}</p>
            
-           <a href={`${API_URL}/api/events/ics/${evento.id}`} className="btn-saiba-mais">
-             SALVAR NO CALENDÁRIO
-           </a>
+           <div className="eventos-botoes">
+               {evento.link_inscricao && (
+                 <a href={evento.link_inscricao} target="_blank" rel="noopener noreferrer" className="btn-saiba-mais btn-inscricao">
+                   GARANTIR MINHA VAGA
+                 </a>
+               )}
+               <a href={`${API_URL}/api/events/ics/${evento.id}`} className="btn-saiba-mais">
+                 SALVAR NO CALENDÁRIO
+               </a>
+           </div>
        </div>
 
      </div>
